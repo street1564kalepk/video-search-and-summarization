@@ -97,7 +97,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
   };
 
   return (
-    <div className="flex items-center justify-between gap-4 px-6 pt-6 pb-4 border-b border-gray-200 dark:border-gray-800">
+    <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 px-6 pt-6 pb-4 border-b border-gray-200 dark:border-gray-800">
       {/* Hidden file input */}
       <input
         ref={fileInputRef}
@@ -129,7 +129,7 @@ export const Toolbar: React.FC<ToolbarProps> = ({
       </div>
 
       {/* Right: search + display filter + delete */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {/* Search input with clear button */}
         <div className="relative">
           <TextInput
