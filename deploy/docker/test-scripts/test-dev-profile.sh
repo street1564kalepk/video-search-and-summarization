@@ -722,12 +722,14 @@ run_dry_run_up_and_check_generated_env "generated.env LLM/VLM slugs and names" "
 run_dry_run_up_and_check_generated_env "generated.env MODE for alerts" "alerts" \
  -i 127.0.0.1 -m verification -d -- \
   "MODE" "2d_cv" \
-  "NEXT_PUBLIC_APP_SUBTITLE" '"Vision (Alerts - CV)"'
+  "NEXT_PUBLIC_APP_SUBTITLE" '"Vision (Alerts - CV)"' \
+  "SDR_CONTROLLER_CONFIG_PATH" "${REPO_ROOT}/deploy/docker/developer-profiles/dev-profile-alerts/sdrc/2d_cv"
 
 run_dry_run_up_and_check_generated_env "generated.env alerts UI subtitle follows real-time MODE" "alerts" \
  -i 127.0.0.1 -m real-time -d -- \
   "MODE" "2d_vlm" \
-  "NEXT_PUBLIC_APP_SUBTITLE" '"Vision (Alerts - VLM)"'
+  "NEXT_PUBLIC_APP_SUBTITLE" '"Vision (Alerts - VLM)"' \
+  "SDR_CONTROLLER_CONFIG_PATH" "${REPO_ROOT}/deploy/docker/developer-profiles/dev-profile-alerts/sdrc/2d_vlm"
 
 # Base profile: when LLM_DEVICE_ID and VLM_DEVICE_ID match (e.g. both 0), derived modes are local_shared for both; when they differ, both are local
 run_dry_run_up_and_check_generated_env "generated.env LLM_MODE VLM_MODE HOST_IP (base defaults)" "base" \
