@@ -168,6 +168,8 @@ agent:
     vlmName: ""
     evalLlmJudgeName: ""   # default in subchart: same as llmName
     evalLlmJudgeBaseUrl: "" # default in subchart: same as llmBaseUrl
+    # LLM_ENABLE_THINKING: toggles chat_template_kwargs.enable_thinking for nim_llm / vllm_llm (default "false"). Mirrors deploy/docker/developer-profiles/dev-profile-base/vss-agent/configs/config.yml.
+    llmEnableThinking: "false"
     # Empty: vss-agent deployment uses global.external* then in-cluster defaults (see global.externalScheme / externalHost / externalPort).
     reportsBaseUrl: ""
     vstExternalUrl: ""
@@ -247,6 +249,8 @@ agent:
         value: '{{- $g := .Values.global | default dict }}{{- $eh := index $g "externalHost" | default "" | trim }}{{- $es := index $g "externalScheme" | default "http" }}{{- $ep := index $g "externalPort" | default "" | trim }}{{- $globalBase := ternary (ternary (printf "%s://%s:%s" $es $eh $ep) (printf "%s://%s" $es $eh) (ne $ep "")) "" (ne $eh "") }}{{- $pfx := default false (coalesce .Values.useReleaseNamePrefix ((index $g "useReleaseNamePrefix") | default false)) }}{{- $vssAgentHttp := ternary (printf "http://%s-vss-agent:8000" .Release.Name) "http://vss-agent:8000" $pfx }}{{ coalesce .Values.vssAgentExternalUrl .Values.vstExternalUrl $globalBase $vssAgentHttp }}'
       - name: VSS_AGENT_VERSION
         value: '{{ .Values.vssAgentVersion | default "3.2.0-26.05.2-2b9b7127c0bb" }}'
+      - name: LLM_ENABLE_THINKING
+        value: '{{ .Values.llmEnableThinking | default "false" }}'
 vss-agent-ui:
   enabled: true
   # Empty URL fields: deployment uses global.external* then in-cluster defaults.
