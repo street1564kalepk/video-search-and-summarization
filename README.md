@@ -76,7 +76,9 @@ Key environment variables:
 | `MILVUS_HOST` | Milvus vector database host | `localhost` |
 | `MILVUS_PORT` | Milvus vector database port | `19530` |
 | `VIDEO_STORAGE_PATH` | Path to store uploaded videos | `./data/videos` |
-| `MAX_VIDEO_SIZE_MB` | Maximum video upload size in MB | `500` |
+| `MAX_VIDEO_SIZE_MB` | Maximum video upload size in MB | `2048` |
+
+> **Personal note:** Bumped `MAX_VIDEO_SIZE_MB` default from `500` to `2048` — the 500 MB cap was too restrictive for the longer lecture recordings I'm working with.
 
 ## Development
 
@@ -97,25 +99,4 @@ pytest tests/ -v
 
 ### Code Style
 
-This project uses `ruff` for linting and `black` for formatting:
-
-```bash
-black .
-ruff check .
-```
-
-## Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) and review the [Pull Request Template](.github/PULL_REQUEST_TEMPLATE.md) before submitting.
-
-To report bugs or request features, please use the appropriate [issue template](.github/ISSUE_TEMPLATE/).
-
-## License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Original blueprint by [NVIDIA AI Blueprints](https://github.com/NVIDIA-AI-Blueprints/video-search-and-summarization)
-- Built with [NVIDIA NIM](https://developer.nvidia.com/nim) microservices
-- Vector search powered by [Milvus](https://milvus.io/)
+This project uses `ruff` for linting and `black` f
