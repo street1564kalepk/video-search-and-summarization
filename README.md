@@ -88,15 +88,11 @@ Key environment variables:
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-pip install -r requirements-dev.txt
+pip install -r requirements-dev.txt  # includes pytest, ruff, etc.
 ```
 
 ### Running Tests
 
 ```bash
-pytest tests/ -v
+pytest tests/
 ```
-
-### Code Style
-
-This project uses `ruff` for linting and `black` f
