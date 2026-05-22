@@ -88,7 +88,11 @@ Key environment variables:
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-pip install -r requirements-dev.txt  # includes pytest, ruff, pre-commit
+pip install -r requirements-dev.txt  # includes pytest, ruff, etc.
 ```
 
-> **Note:** If you're on macOS with an Apple Silicon chip, some NVIDIA-specific packages will not install — that's expected. You can still run the non-GPU parts of the stack locally and point at a remote NIM endpoint via `NVIDIA_API_KEY`.
+### Running Tests
+
+```bash
+pytest tests/
+```
